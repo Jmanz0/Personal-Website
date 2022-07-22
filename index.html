@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<style type="text/css">
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	:root {
+		--color-red: #ff1616;
+		--color-darkblue: #1d1e2e;
+		--color-dark: #1b1a2a;
+		--color-lightgrey: #d9d9d9;
+		--color-white: #fff;
+
+		--fw-reg: 300;
+		--fw-bold: 900;
+
+		--fs-h1: 3rem;
+		--fs-h2: 2rem;
+		--fs-h3: 1.5rem;
+		--fs-body: 1rem;
+
+	}
+
+	@media (min-width: 900px) {
+		:root {
+			--fs-h1: 4.5rem;
+			--fs-h2: 3rem;
+			--fs-h3: 2rem;
+			--fs-body: 1.1rem;
+		}
+	}
+
+	body {
+		background: var(--color-darkblue);
+		margin: 0;
+		font-family: 'Open Sans', sans-serif;
+		font-size: var(--fs-body);
+		line-height: 1.5;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	h1,
+	h2,
+	h3 {
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	h1 {
+		font-size: var(--fs-h1);
+	}
+
+	h2 {
+		font-size: var(--fs-h2);
+	}
+
+	h3 {
+		font-size: var(--fs-h3);
+	}
+
+	section {
+		margin: 1rem 2rem 1rem 2rem;
+		color: var(--color-lightgrey);
+		margin-bottom: 15rem;
+		font-size: 1.25rem;
+	}
+
+	.section_title {
+		margin: 0;
+		color: var(--color-red);
+	}
+
+	.section_title {
+		margin: 0;
+		color: var(--color-red);
+	}
+
+	.section_subtitle {
+		font-size: var(--fs-h2);
+	}
+
+	
+	/* intro section */
+
+	#top-right {
+		position: absolute;
+		top: .1em;
+		right: 1em;
+		grid-gap: 1em;
+	}
+
+
+	.program {
+		color: var(--color-lightgrey);
+	}
+
+	.name {
+		font-size: var(--fs-h1);
+	}
+
+	.degree {
+		line-height: 0;
+		font-size: var(--fs-h3);
+		color: var(--color-white);
+	}
+
+	.home_image {
+		border-radius: 50%;
+		margin-bottom: 15px;
+	}
+
+	.home {
+		display: block;
+		width: 80%;
+		margin: 10rem auto;
+		text-align: center;
+	}
+
+	@media (min-width: 900px) {
+		.home {
+			text-align: left;
+			display: grid;
+			width: min-content;
+			margin: 18rem auto;
+			grid-column-gap: 2em;
+			grid-template-areas:
+				"image vl name"
+				"image vl degree";
+			grid-template-columns: min-content min-content max-content;
+		}
+
+		.home_image {
+			min-width: 250px;
+			grid-area: image;
+		}
+
+		.degree {
+			grid-area: degree;
+			align-self: end;
+		}
+
+		.name{
+			grid-area: name;
+		}
+
+		.vl{
+			grid-area: vl;
+			border-left: 5px solid #fff;
+			height: degree.height;
+		}
+	}
+
+	/* about */
+	.tvl {
+		border-left: 5px solid #fff;
+		height: section_title.height;
+		padding-left: 10px;
+	}
+
+	.about {
+		margin-right: 10%;
+	}
+
+	/* portfolio */
+
+	.portfolio {
+		display: block;
+		justify-content: center;
+	}
+
+	.project {
+		background: var(--color-dark);
+		border-radius: 5%;
+		padding: 1em 1.5em;
+		margin-top: 2em;
+	}
+
+	.project_title {
+		font-size: var(--fs-h2);
+		margin-top: 0;
+		margin-bottom: 0;
+		text-align: center;
+		color: var(--color-white);
+	}
+
+	.project_tools {
+		font-size: 1.5em;
+		margin: auto 0;
+	}
+
+	.project_description {
+		margin: auto 0;
+	}
+
+
+
+	@media (min-width: 900px) {
+		.portfolio {
+			display: grid;
+			column-gap: 1em;
+			grid-template-columns: repeat(2, 1fr);
+			padding-left: 1.5em;
+			padding-right: 1.5em;
+		}
+	}
+
+	.buttons {
+		margin-top: 1em;
+		display: flex;
+		column-gap: 1em;
+	}
+
+	.button {
+		background: var(--color-red);
+		border-radius: 5px;
+		text-align: center;
+		width: 5em;
+		height: auto;
+		color: #fff;
+	}
+
+	.buttons a {
+		text-decoration: none;
+	}
+
+	.button:hover {
+		opacity: .7;
+	}
+
+	.contact_form_item {
+		background: var(--color-lightgrey);
+		border-radius: 5px;
+		font-size: var(--fs-h3);
+	}
+
+	.contact_form_button {
+		border: none;
+		color: var(--color-white);
+		background: var(--color-red);
+		width: 30%;
+	}
+
+	.contact_form input {
+		border: none;
+		font-size: var(--fs-h3);
+	}
+
+	.contact_form {
+		margin-top: 2em;
+		font-size: 2em;
+	}
+
+	.contact_form_button:hover {
+		opacity: .75;
+	}
+
+	.contact_form_description {
+		resize: none;
+	}
+
+	@media (max-width: 900px) {
+		.contact_form {
+			width: 100%;
+			display: flex;
+			margin-top: 1em;
+			flex-direction: column;
+			align-items: center;
+			grid-gap: .25em;
+		}
+	}
+
+
+	@media (min-width: 900px) {
+		.contact_form {
+			display: grid;
+			grid-template-areas:
+			"Name Description"
+			"Email Description"
+			"Submit Description";
+			width: min-content;
+			grid-template-columns: min-content max-content;
+			grid-gap: .5em;
+		}
+
+		.contact_form_button {
+			grid-area: Submit;
+		}
+
+		.contact_form_name {
+			grid-area: Name;
+		}
+
+		.contact_form_email {
+			grid-area: Email;
+		}
+
+		.contact_form_description {
+			grid-area: Description;
+		}
+	}
+
+	/* footer */
+
+	.socials {
+		list-style: none;
+		display: flex;
+		justify-content: center;
+		flex-direction: row-reverse;
+		column-gap: 4em;
+	}
+
+	.socials a {
+		color: var(--color-lightgrey);
+		text-decoration: none;
+	}
+
+	.socials_item:hover {
+		opacity: .7;
+	}
+
+	.footer {
+		background: var(--color-dark);
+		color: var(--color-lightgrey);
+		text-align: center;
+		padding-top: 0.1em;
+		padding-bottom: .75em;
+	}
+
+	.design {
+		margin-top: -1em;
+		color: darkgray;
+	}
+
+
+	/* nav */
+	nav {
+		display: none;
+	}
+	@media (min-width: 900px) {
+		nav {
+			display: flex;
+			position: fixed;
+			margin-left: -1.5em;
+		}
+
+		.nav_list {
+			padding-top: 1.5em;
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			grid-row-gap: 1em;
+
+		}
+
+		.nav_list a {
+			color: var(--color-lightgrey);
+			text-decoration: none;
+		}
+
+		.nav_item:hover {
+			opacity: .7;
+		}
+
+		section {
+			margin-left: 4em;
+		}
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+</style>
+
+<html lang="en"id = "start">
+	<head>
+		<meta charset = "UTF-8">
+		<meta name= "viewport" content="width=device-width, initial-scale=1.0">
+		<title> Jason Manzara </title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul class="nav_list">
+					<li class = "nav_item"><a href = "#start"> <i class="fa-solid fa-house fa-xl"></i> </a></li>
+					<li class = "nav_item"><a href = "#about"> <i class="fa-solid fa-user-astronaut fa-xl"></i> </a></li>
+					<li class = "nav_item"><a href = "#projects"> <i class="fa-solid fa-file-lines fa-xl"></i> </a></li>
+					<li class = "nav_item"><a href = "#contact"> <i class="fa-solid fa-envelope fa-xl"></i> </a></li>
+				</ul>
+			</nav>
+
+			<!-- Home -->
+			<section class="home" id = "intro">
+				<ul class="socials" id = "top-right">
+					<li class = "socials_item"> 
+						<a href="mailto:jm@jasonmanzara.com" class = "socials-email"> <i class="fa-solid fa-envelope fa-2xl"> </i></a> 
+					</li>
+					<li class = "socials_item"> 
+						<a href="https://github.com/Jmanz0" target=”_blank”> <i class="fa-brands fa-github fa-2xl"></i> </a> 
+					</li>
+					<li class = "socials_item"> 
+						<a href="https://www.linkedin.com/in/jason-manzara-91b5b4221/" target=”_blank”> <i class="fa-brands fa-linkedin fa-2xl"></i></i> </a> 
+					</li>
+				</ul>
+				<img src = "img/myself.jpg" alt = "" class = "home_image">
+				<h1 class = "section_title name">
+					<strong>Jason Manzara</strong></h1>
+					<div class = "degree">
+						<p>
+							Combined Major in
+						</p>
+						<p class= "program">
+							Business & Computer Science
+						</p>
+					</div>
+					<div class="vl"></div>
+			</section>
+
+			<!-- About -->
+			<section id = "about">
+				<div class= "tvl">
+					<h2 class= "section_title"> About Me </h2>
+				</div>
+				<div class = "about">
+					<p>Hello! My name is Jason, currently a second year Business and Computer Science student at the University of British Columbia.</p>
+					<p>Currently I am learning backend web development and improving my knowledge on numerous programming languages.</p>
+				</div>
+			</section>
+
+			<!-- Projects -->
+			<section id = "projects">
+				<div class= "tvl">
+					<h2 class= "section_title"> Projects </h2>
+				</div>
+				<div class = "portfolio">
+					<div class = "project">
+						<p class = "project_title"> The Video Game </p>
+						<img class = "project_img" src = "img/the_video_game.png" alt = "">
+						<p class = "project_tools"> Java, Swing </p>
+						<p class = "project_description"> A strategy game utilizing Java and Swing </p>
+						<div class = "buttons">
+							<a href="https://github.com/Jmanz0" target=”_blank”> <div class = "button"> Code</div> </a>
+							<a href="" target=”_blank” > <div class = "button"> View</div> </a>
+						</div>
+					</div> 
+					<div class = "project">
+						<p class = "project_title"> Resume Database </p>
+						<img class = "project_img" src = "img/lambda.jpg" alt = "">
+						<p class = "project_tools"> AWS, Lambda, DynamoDB </p>
+						<p class = "project_description"> Stores resumes within a database </p>
+						<div class = "buttons">
+							<a href="https://github.com/Jmanz0" target=”_blank” > <div class = "button"> Code</div> </a>
+							<a href="" target=”_blank” > <div class = "button"> View</div> </a>
+						</div>
+					</div> 
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section id = "contact">
+				<div class= "tvl">
+					<h2 class= "section_title"> Contact Me </h2>
+				</div>
+				<form class = "contact_form" action = "https://formsubmit.co/jm@jasonmanzara.com" method = "POST">
+					<input class = "contact_form_item contact_form_name" type="text" name="name" placeholder = "Name" required>
+					<input class = "contact_form_item contact_form_email" type="email" name="email" placeholder = "Email Address" required>
+					<textarea class = "contact_form_item contact_form_description" name = "Description" placeholder = "Description"></textarea>
+					<button class = "contact_form_item contact_form_button" type="submit">Send</button>
+					<input type="hidden" name="_next" value="https://jasonmanzara.com/thanks.html">
+					<input type="hidden" name="_subject" value="New submission!">
+					<input type="hidden" name="_template" value="table">
+				</form>
+			</section>
+
+			<!-- Footer -->
+			<footer class="footer">
+				<ul class="socials">
+					<li class = "socials_item"> 
+						<a href="mailto:jm@jasonmanzara.com" class = "socials-email"> <i class="fa-solid fa-envelope fa-2xl"> </i> jm@jasonmanzara.com </a> 
+					</li>
+					<li class = "socials_item"> 
+						<a href="https://github.com/Jmanz0" target=”_blank”> <i class="fa-brands fa-github fa-2xl"></i> </a> 
+					</li>
+					<li class = "socials_item"> 
+						<a href="https://www.linkedin.com/in/jason-manzara-91b5b4221/" target=”_blank”> <i class="fa-brands fa-linkedin fa-2xl"></i></i> </a> 
+					</li>
+
+				</ul>
+				<p class = "footer-text"> @2022 Jason Manzara</p>
+				<p class = "design"> Created and Designed by Jason Manzara</p>
+			</footer>
+
+
+		</header>
+	</body>
+</html>
