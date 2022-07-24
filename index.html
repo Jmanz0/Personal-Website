@@ -235,23 +235,24 @@
 	.contact_form_item {
 		background: var(--color-lightgrey);
 		border-radius: 5px;
-		font-size: var(--fs-h3);
+		font-size: .5em;
+		padding: 10px;
 	}
 
 	.contact_form_button {
 		border: none;
+		padding: 10px;
 		color: var(--color-white);
 		background: var(--color-red);
-		width: 30%;
+		width: 53%;
 	}
 
 	.contact_form input {
 		border: none;
-		font-size: var(--fs-h3);
 	}
 
 	.contact_form {
-		margin-top: 2em;
+		margin-top: 1em;
 		font-size: 2em;
 	}
 
@@ -265,12 +266,22 @@
 
 	@media (max-width: 900px) {
 		.contact_form {
-			width: 100%;
 			display: flex;
 			margin-top: 1em;
 			flex-direction: column;
 			align-items: center;
 			grid-gap: .25em;
+		}
+		.contact_form_item{
+			width: 60%;
+		}
+
+		.contact_form_description {
+			padding-bottom: 4em;
+		}
+
+		.contact_form_button {
+			width: 30%;
 		}
 	}
 
@@ -301,6 +312,7 @@
 
 		.contact_form_description {
 			grid-area: Description;
+			width: 15em;
 		}
 	}
 
